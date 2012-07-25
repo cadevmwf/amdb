@@ -8,6 +8,7 @@
 
 Director.destroy_all
 Movie.destroy_all
+Character.destroy_all
 
 directors = [
   { name: "Francis Ford Coppola", dob: "04/07/1939" },
@@ -29,3 +30,16 @@ movies = [
 movies.each do |movie|
   Movie.create movie
 end
+
+characters = [
+  { name: "Bruce Wayne", movie_id: Movie.find_by_title("The Dark Knight").id },
+  { name: "Michael Corleone", movie_id: Movie.find_by_title("The Godfather").id },
+  { name: "Andy Dufresne", movie_id: Movie.find_by_title("The Shawshank Redemption").id },
+  { name: "Red Redding", movie_id: Movie.find_by_title("The Shawshank Redemption").id }
+  ]
+  
+characters.each do |character|
+  Character.create character
+end
+
+

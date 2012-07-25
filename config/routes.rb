@@ -1,4 +1,6 @@
 Amdb::Application.routes.draw do
+  resources :characters
+
   resources :movies
 
   resources :directors
