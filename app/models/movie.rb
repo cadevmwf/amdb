@@ -4,9 +4,6 @@ class Movie < ActiveRecord::Base
   belongs_to :director
   has_many :characters
   
-    
-  
-  
   # def director
   #   return Director.find_by_id(self.director_id)
   # end
