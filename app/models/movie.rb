@@ -4,6 +4,10 @@ class Movie < ActiveRecord::Base
   belongs_to :director
   has_many :characters
   has_many :actors, :through => :characters
+  has_many :ratings
+  
+  validates_presence_of :title, :message => "wazzup with that?"
+  validates_presence_of :director_id
   
   # def director
   #   return Director.find_by_id(self.director_id)
