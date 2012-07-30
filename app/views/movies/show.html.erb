@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= link_to "Rate This Movie", new_rating_url %></p>
 <p>
   <b>Title:</b>
   <%= @movie.title %>
@@ -14,6 +15,11 @@
   <b>Director:</b>
   <%= @movie.director.name %>
 </p>
+
+<b>Ratings:</b>
+<%= @movie.ratings.each do |rating| %>
+  <p><%= rating.user.name %> rated it <%= rating.stars %> stars.</p>
+<% end %>
 
 <b>Cast:</b>
 <ul>
