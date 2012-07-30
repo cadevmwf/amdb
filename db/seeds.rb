@@ -10,7 +10,10 @@ Director.destroy_all
 Movie.destroy_all
 Character.destroy_all
 Actor.destroy_all
+User.destroy_all
+Rating.destroy_all
 
+puts "Creating directors."
 directors = [
   { name: "Francis Ford Coppola", dob: "04/07/1939" },
   { name: "Christopher Nolan", dob: "07/30/1970" },
@@ -20,7 +23,8 @@ directors = [
 directors.each do |director|
   Director.create name: director[:name], dob: (Date.strptime director[:dob], '%m/%d/%Y')
 end
-    
+
+puts "Creating movies."   
 movies = [
   { title: "The Godfather", year: "1972", director_id: Director.find_by_name("Francis Ford Coppola").id },
   { title: "The Godfather: Part II", year: "1974", director_id: Director.find_by_name("Francis Ford Coppola").id },
@@ -32,6 +36,7 @@ movies.each do |movie|
   Movie.create movie
 end
 
+puts "Creating actors."
 actors = [
   { name: "Christian Bale", dob: "01/30/1974" },
   { name: "Al Pacino", dob: "04/25/1940" },
@@ -43,6 +48,7 @@ actors.each do |actor|
   Actor.create name: actor[:name], dob: (Date.strptime actor[:dob], '%m/%d/%Y')
 end
 
+puts "Creating characters."
 characters = [
   { actor_id: Actor.find_by_name("Christian Bale").id, name: "Bruce Wayne", movie_id: Movie.find_by_title("The Dark Knight").id },
   { actor_id: Actor.find_by_name("Al Pacino").id, name: "Michael Corleone", movie_id: Movie.find_by_title("The Godfather").id },
@@ -52,4 +58,13 @@ characters = [
   
 characters.each do |character|
   Character.create character
+end
+
+puts "Creating users and ratings."
+100.times do |i|
+  user = User.create :name => "User#{i}"
+  
+  Movie.all.each do |movie|
+    rating = Rating.create :user_id => user.id, :movie_id => movie.id, :stars => (rand(4) + 1)
+  end
 end
