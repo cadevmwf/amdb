@@ -2,17 +2,17 @@
 
 <p>
   <b>User:</b>
-  <%= @rating.user_id %>
+  <%= @rating.user.name %>
 </p>
 
 <p>
   <b>Movie:</b>
-  <%= @rating.movie_id %>
+  <%= @rating.movie.title %>
 </p>
 
 <p>
   <b>Stars:</b>
-  <%= @rating.stars %>
+  <%= "★" * @rating.stars %>
 </p>
 
 

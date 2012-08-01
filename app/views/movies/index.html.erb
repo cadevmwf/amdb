@@ -1,4 +1,7 @@
-<h1>Listing movies</h1>
+<h1>Academy Movie Database</h1>
+
+<%= link_to "Sort By Title in Descending Order", 
+  movies_path(:sort_by => 'desc') %>
 
 <table>
   <tr>
@@ -16,7 +19,7 @@
     <td><%= movie.year %></td>
     <td><%= movie.director.name %></td>
     <td><%= link_to 'Show', movie %></td>
-    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+    <td><%= link_to 'Edit', edit_movie_path(movie.id) %></td>
     <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

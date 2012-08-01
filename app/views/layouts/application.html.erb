@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Amdb</title>
+  <title>Academy Movie Database</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+	
 </head>
 <body>
+
+	<p>
+		<%= link_to "Directors", directors_url %> | 
+		<%= link_to "Movies", movies_url %> | 
+		<%= link_to "Characters", characters_url %> | 
+		<%= link_to "Actors", actors_url %> |
+		<%= link_to "Ratings", ratings_url %> |
+		<%= link_to "Users", users_url %>
+	</p>
 
 <%= yield %>
 
